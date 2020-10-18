@@ -17,3 +17,10 @@
 /bin/
 /build/
 
+# releases
+/*jumpy_tanx*/
+/*jumpy_tanx*.zip
+
+# changes to libraries should be rare
+/libraries/
+
