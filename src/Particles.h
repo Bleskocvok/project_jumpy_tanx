@@ -24,7 +24,7 @@ public:
     Particles(Terrain* terrain, float explosion_size = 4)
             : terrain(terrain)
             , explosion_size(explosion_size) {
-       
+
         explosion_mat.set_diffuse(1.25, 1.25, 1.25);
     }
     void update(double time) {
@@ -64,7 +64,7 @@ public:
         }
         add_explosion(pos);
     }
-   
+
     void tank_explosion(glm::vec3 pos, float power = 1.0) {
         unsigned count = power * 15;
         for (unsigned i = 0; i < count; ++i) {
@@ -83,46 +83,46 @@ public:
             add_explosion(pos + current_pos);
         }
     }
-   
+
 private:
     static constexpr unsigned MAX_PARTICLES = 150;
     static constexpr float EXPLOSION_TIME = 0.4;
-   
+
     Terrain* terrain;
-   
+
     float explosion_size;
-   
+
     Texture particle_1_tex{ "models/dirt_1_texture.png" };
     Texture particle_1_light{ "models/neutral_light_map.png" };
     Material mat{ true };
     ObjModel particle_1_model{ "models/dirt_1.obj" };
     ModelRef particle_1{ &particle_1_model, &mat, &particle_1_tex, &particle_1_light };
-   
+
     Texture tank_particle_1_tex{ "models/tank_particle_texture.png" };
     ObjModel tank_particle_1_model{ "models/tank_particle.obj" };
-   
+
     std::vector<ModelRef> models{
         particle_1,
         ModelRef(&tank_particle_1_model, &mat, &tank_particle_1_tex, nullptr)
     };
-   
+
     std::vector<ThingMatrix> particles;
     std::vector<size_t> indexes;
-   
+
     ObjModel explosion_model{ "models/explosion.obj" };
     Texture explosion_tex{ "models/explosion_texture.png" };
     Texture explosion_light_map{ "models/green.png" };
     Material explosion_mat{ true };
     ModelRef explosion_ref{ &explosion_model, &explosion_mat, &explosion_tex, &explosion_light_map };
-   
+
     std::vector<std::pair<float, glm::vec3>> explosions;
-   
+
     RandGen rand;
-   
+
     void add_explosion(glm::vec3 pos) {
         explosions.emplace_back(0.0, pos);
     }
-   
+
     void add_particle(size_t type, glm::vec3 centre, glm::vec3 offset, float power) {
         if (particles.size() >= MAX_PARTICLES) {
             size_t index = rand.get_int(0, particles.size()-1);

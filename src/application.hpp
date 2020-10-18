@@ -73,8 +73,8 @@ private:
     /*
      * Attributes.
      */
-	size_t width;
-	size_t height;
+    size_t width;
+    size_t height;
 
     bool quit = false;
     bool play = false;
@@ -91,12 +91,12 @@ private:
     /*
      * General whings.
      */
-	Program main_program = Program("shaders/main.vert", "shaders/main.frag");
+    Program main_program = Program("shaders/main.vert", "shaders/main.frag");
 
     Camera camera{ 16.0f };
 
-	Terrain terrain{ 1, 7.0, 140, 8 };
-	TerrainModel terrainModel{
+    Terrain terrain{ 1, 7.0, 140, 8 };
+    TerrainModel terrainModel{
         terrain,
         1.5 * 0.5,
         ModelRef(nullptr, &terrain_mat, &terrain_tex, nullptr)
@@ -132,13 +132,13 @@ private:
     bool cannon_down = false;
 
     bool button_up = false;
-	bool button_down = false;
-	bool button_left = false;
-	bool button_right = false;
+    bool button_down = false;
+    bool button_left = false;
+    bool button_right = false;
 
-	double prev_mouse_x = 0;
-	double prev_mouse_y = 0;
-	bool moving_view = true;
+    double prev_mouse_x = 0;
+    double prev_mouse_y = 0;
+    bool moving_view = true;
 
     bool paused = true;
     bool started = false;
@@ -156,31 +156,31 @@ private:
     Texture terrain_tex{ "models/terrain_texture.png" };
     Texture terrain_light{ "models/tank_light_map.png" };
 
-	ObjModel tank_torso_model{ "models/player_tank_torso.obj" };
-	ObjModel tank_head_model{ "models/player_tank_head.obj" };
-	ObjModel tank_cannon_model{ "models/player_tank_cannon.obj" };
+    ObjModel tank_torso_model{ "models/player_tank_torso.obj" };
+    ObjModel tank_head_model{ "models/player_tank_head.obj" };
+    ObjModel tank_cannon_model{ "models/player_tank_cannon.obj" };
 
-	Material default_mat = Material(Locs::MAT_AMB, Locs::MAT_DIF, Locs::MAT_SPEC, Locs::MAT_SHINE);
+    Material default_mat = Material(Locs::MAT_AMB, Locs::MAT_DIF, Locs::MAT_SPEC, Locs::MAT_SHINE);
 
     Texture tank_torso_texture = Texture("models/player_tank_torso_texture.png");
     Texture tank_head_texture = Texture("models/player_tank_head_texture.png");
     Texture tank_cannon_texture = Texture("models/player_tank_cannon_texture.png");
     Texture tank_torso_light_map = Texture("models/player_tank_torso_light_map.png");
 
-	Tank tank{ &terrain,
-			glm::vec3((terrain.x_max() + terrain.x_min()) * 0.5, 3.0f, (terrain.z_max() + terrain.z_min()) * 0.5),
-			glm::vec3(1.4f, 1.5f, 2.4f),
-			ModelRef(&tank_torso_model, &default_mat, &tank_torso_texture, &tank_torso_light_map),
-			ModelRef(&tank_head_model, nullptr, &tank_head_texture, nullptr),
-			ModelRef(&tank_cannon_model, nullptr, &tank_cannon_texture, nullptr)
-	};
+    Tank tank{ &terrain,
+            glm::vec3((terrain.x_max() + terrain.x_min()) * 0.5, 3.0f, (terrain.z_max() + terrain.z_min()) * 0.5),
+            glm::vec3(1.4f, 1.5f, 2.4f),
+            ModelRef(&tank_torso_model, &default_mat, &tank_torso_texture, &tank_torso_light_map),
+            ModelRef(&tank_head_model, nullptr, &tank_head_texture, nullptr),
+            ModelRef(&tank_cannon_model, nullptr, &tank_cannon_texture, nullptr)
+    };
 
     /*
      * Enemy tanks.
      */
     ObjModel enemy1_tank_torso_model{ "models/tank_torso.obj" };
-	ObjModel enemy1_tank_head_model{ "models/tank_head.obj" };
-	ObjModel enemy1_tank_cannon_model{ "models/tank_cannon.obj" };
+    ObjModel enemy1_tank_head_model{ "models/tank_head.obj" };
+    ObjModel enemy1_tank_cannon_model{ "models/tank_cannon.obj" };
     Texture enemy1_tank_texture{ "models/tank_texture.png" };
     Texture enemy1_tank_light_map = Texture("models/tank_light_map.png");
 };

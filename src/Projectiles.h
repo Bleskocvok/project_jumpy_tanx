@@ -27,7 +27,7 @@ public:
             , explosions(explosions)
             , lights(lights)
             , radius(size * 0.5) {
-       
+
         material.set_ambient(0.2, 0.2, 0.2)
                 .set_diffuse(1.0, 1.0, 1.0)
                 .set_specular(0.0, 0.0, 0.0)
@@ -46,11 +46,11 @@ public:
             if (destroyed(projs[i].first, radius)) {
                 glm::vec3 pos = projs[i].first;
                 projs.erase(projs.begin() + i);
-               
+
                 particles.add(pos, 1.0f);
-               
+
                 explosions.add(pos);
-               
+
                 light_vec[i].erase();
                 light_vec.erase(light_vec.begin() + i);
             } else {
@@ -60,7 +60,7 @@ public:
                 prev = current;
                 current.y -= 1.8 * time * time * 48.0;
                 projs[i] = { current + diff, prev };
-               
+
                 light_vec[i].light->pos = glm::vec4(current, light_vec[i].light->pos.w);
             }
         }
@@ -86,11 +86,11 @@ private:
     std::vector<std::pair<glm::vec3, glm::vec3>> projs;
     std::vector<Lights::LightRef> light_vec;
     float radius;
-   
+
     bool destroyed(glm::vec3 pos, float radius) {
         if (pos.y - radius < terrain.get_height(pos.x, pos.z)) {
-			return true;
-		}
+            return true;
+        }
         return pos.x < terrain.x_min()
                 || pos.x > terrain.x_max()
                 || pos.z < terrain.z_min()

@@ -71,7 +71,7 @@ public:
                     });
         }
     }
-   
+
     void draw_text(const std::string& text, float x, float y, float height) {
         text_shader.use();
         atlas.bindUnit(0);

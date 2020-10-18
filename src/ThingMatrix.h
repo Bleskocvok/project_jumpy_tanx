@@ -21,30 +21,30 @@ class ThingMatrix {
 public:
     ThingMatrix(const Terrain* terrain, glm::vec3 centre, glm::vec3 size, float radiuses) // radii
             : points(terrain) {
-       
+
         points.add_point(centre + glm::vec3(0.0f, 0.0f, -size.z * 0.5f), radiuses);
         points.add_point(centre + glm::vec3(-size.x * 0.5f, 0.0f, +size.z * 0.5f), radiuses);
         points.add_point(centre + glm::vec3(size.x * 0.5f, 0.0f, +size.z * 0.5f), radiuses);
         points.add_point(centre + glm::vec3(0.0f, size.y, 0.0f), radiuses);
-       
+
         points.join(0, 1);
         points.join(1, 2);
         points.join(2, 0);
-       
+
         points.join(0, 3);
         points.join(1, 3);
         points.join(2, 3);
     }
-   
+
     void update(double time) {
-		points.update(time);
-	}
-   
+        points.update(time);
+    }
+
     glm::mat4 get_matrix() {
-		glm::vec3 middle = get_middle();
-		return glm::inverse(glm::lookAt(middle, (points[0] + points[1]) * 0.5f, points[3] - middle));
-	}
-   
+        glm::vec3 middle = get_middle();
+        return glm::inverse(glm::lookAt(middle, (points[0] + points[1]) * 0.5f, points[3] - middle));
+    }
+
     void explode(glm::vec3 centre, float power) {
         for (size_t i = 0; i < points.size(); ++i) {
             glm::vec3 diff = points[i] - centre;
@@ -57,7 +57,7 @@ public:
     }
 private:
     JoinedPoints points;
-   
+
     glm::vec3 get_middle() const {
         return (points[0] + points[1] + points[2]) * 0.3333f;
     }

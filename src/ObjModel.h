@@ -17,16 +17,16 @@
 
 class ObjModel {
 public:
-	ObjModel(const std::string& file)
-		: meshes(Mesh::load_file(file)) {}
+    ObjModel(const std::string& file)
+        : meshes(Mesh::load_file(file)) {}
 
-	void draw() {
-		for (auto& piece : meshes) {
-			piece->draw();
-		}
-	}
+    void draw() {
+        for (auto& piece : meshes) {
+            piece->draw();
+        }
+    }
 private:
-	Meshes meshes;
+    Meshes meshes;
 };
 
 #endif /* OBJMODEL_H */

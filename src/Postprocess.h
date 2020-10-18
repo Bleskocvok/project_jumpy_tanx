@@ -38,19 +38,19 @@ public:
         bright.use();
         glBindTextureUnit(0, main.color_texture());
         glDrawArrays(GL_TRIANGLES, 0, 3);
-       
+
         blurred1.bind();
         blurred1.clear();
         blur_h.use();
         glBindTextureUnit(0, bright_parts.color_texture());
         glDrawArrays(GL_TRIANGLES, 0, 3);
-       
+
         blurred2.bind();
         blurred2.clear();
         blur_v.use();
         glBindTextureUnit(0, blurred1.color_texture());
         glDrawArrays(GL_TRIANGLES, 0, 3);
-       
+
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
         glClear(GL_COLOR_BUFFER_BIT);
         add.use();

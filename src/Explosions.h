@@ -24,15 +24,15 @@ public:
     Explosions(float radius, int dmg)
             : radius(radius)
             , dmg(dmg) {}
-   
+
     void clear() {
         spheres.clear();
     }
-   
+
     void add(glm::vec3 pos) {
         spheres.push_back(pos);
     }
-   
+
     void calc_tank(Tank& tank) {
         for (auto& one : spheres) {
             float how_much = tank.collides(one, radius);
