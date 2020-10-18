@@ -1,0 +1,14 @@
+
+
+# bash utils
+/*.sh
+
+# DLLs
+/*.dll
+
+# build folder
+/bin/
+
+# vscode crap
+/.vscode/
+
