@@ -12,3 +12,8 @@
 # vscode crap
 /.vscode/
 
+# build targets
+/win/
+/bin/
+/build/
+
