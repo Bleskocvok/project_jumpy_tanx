@@ -1,7 +1,10 @@
 # project_jumpy_tanx
 A game like no other...
 
-# Dependencies
+### Latest version
+[Download](https://github.com/Bleskocvok/project_jumpy_tanx/releases/latest)
+
+### Dependencies
 The project depends on these libraries, each has a respective folder in `libraries`:
 
 - **GLFW** (https://www.glfw.org/)
