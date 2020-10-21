@@ -176,7 +176,7 @@ private:
 
 class Mesh;
 
-using Meshes = std::vector<std::unique_ptr<Mesh>>;
+using Meshes = std::vector<Mesh>;
 
 class Mesh {
 
@@ -210,7 +210,7 @@ public:
     Mesh(Mesh&&) = default;
     Mesh& operator=(Mesh&&) = default;
 
-    ~Mesh() {}
+    ~Mesh() = default;
 
     void draw() {
         vao.bind();
@@ -270,8 +270,7 @@ public:
                 }
             }
             result.push_back(
-                std::make_unique<Mesh>(
-                    vertices, normals, tex_coords, std::vector<uint32_t>{}));
+                Mesh(vertices, normals, tex_coords, std::vector<uint32_t>{}));
         }
         return result;
     }

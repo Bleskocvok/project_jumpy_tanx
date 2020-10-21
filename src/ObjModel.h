@@ -22,9 +22,10 @@ public:
 
     void draw() {
         for (auto& piece : meshes) {
-            piece->draw();
+            piece.draw();
         }
     }
+
 private:
     Meshes meshes;
 };
