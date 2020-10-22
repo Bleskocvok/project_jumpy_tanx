@@ -1,3 +1,3 @@
 # language detection
 # ignore all files in the libraries/ folder
-/libraries/* linguist-vendored
+libraries/* linguist-vendored
