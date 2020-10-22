@@ -6,13 +6,10 @@
 # DLLs
 /*.dll
 
-# build folder
-/bin/
-
 # vscode crap
 /.vscode/
 
-# build targets
+# build folders
 /win/
 /bin/
 /build/
