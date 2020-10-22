@@ -225,7 +225,7 @@ void Application::on_mouse_move(GLFWwindow*, double x, double y) {
     prev_mouse_y = y;
 }
 
-void Application::on_mouse_pressed(GLFWwindow* window, int button, int action, int mods) {
+void Application::on_mouse_pressed(GLFWwindow* window, int button, int action, int /*mods*/) {
     if (paused) {
         paused = false;
         started = true;
@@ -247,7 +247,7 @@ void Application::on_mouse_pressed(GLFWwindow* window, int button, int action, i
     }
 }
 
-void Application::on_key_pressed(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void Application::on_key_pressed(GLFWwindow* window, int key, int /*scancode*/, int action, int /*mods*/) {
     if (key == GLFW_KEY_W) {
         if (action == GLFW_PRESS) {
             button_up = true;

@@ -39,7 +39,7 @@ public:
             }
         }
     }
-    void draw(Program& program, double time) {
+    void draw(Program& program, double /*time*/) {
         for (size_t i = 0; i < particles.size(); ++i) {
             models[indexes[i]].set_matrix(particles[i].get_matrix());
             models[indexes[i]].draw(program);

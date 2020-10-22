@@ -98,7 +98,7 @@ public:
         glCreateBuffers(1, &buffer);
         glNamedBufferStorage(buffer, transformed.size() * sizeof(OneLight), transformed.data(), GL_DYNAMIC_STORAGE_BIT);
     }
-    void send(Program& program) {
+    void send(Program& /*program*/) {
         glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 0, buffer);
     }
     LightRef add(OneLight new_light) {

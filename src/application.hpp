@@ -57,7 +57,7 @@ public:
     size_t get_height() const { return height; }
 
 private:
-    void add_enemy(glm::vec3 pos, unsigned type = 0) {
+    void add_enemy(glm::vec3 pos, unsigned /*type*/ = 0) {
         enemies.emplace_back(std::make_unique<NormalEnemy>(
                 &terrain,
                 pos,

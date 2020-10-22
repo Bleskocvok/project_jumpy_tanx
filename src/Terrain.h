@@ -42,9 +42,12 @@ public:
 //        if (x < 0.0 || z < 0.0 || x >= x_max() || z >= z_max()) {
 //            return 0.0;
 //        }
-        unsigned int_x = x;
-        unsigned int_z = z;
-        if (int_x < 0 || int_z < 0 || int_x >= map_size || int_z >= map_size) {
+        int int_x = x;
+        int int_z = z;
+        if (int_x < 0
+                || int_z < 0
+                || static_cast<unsigned>(int_x) >= map_size
+                || static_cast<unsigned>(int_z) >= map_size) {
             return 0.0;
         }
         float diff_x = x - int_x;

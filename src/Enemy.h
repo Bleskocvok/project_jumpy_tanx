@@ -50,7 +50,7 @@ public:
         tank.update(time);
     }
 
-    void draw(Program& program, double time) {
+    void draw(Program& program, double /*time*/) {
         tank.draw(program);
     }
 
