@@ -108,76 +108,77 @@ target_link_libraries(jumpy_tanx
 #
 # ################################################
 
+function(asset FILENAME)
+    configure_file(
+        ${CMAKE_CURRENT_SOURCE_DIR}/${FILENAME}
+        ${CMAKE_CURRENT_BINARY_DIR}/${FILENAME}
+        COPYONLY)
+endfunction()
+
 
 #
 # Shaders
 #
 
-set(SHADERS ${CMAKE_CURRENT_SOURCE_DIR}/shaders)
-set(SHADERS_BINARY ${CMAKE_CURRENT_BINARY_DIR}/shaders)
+asset(shaders/main.vert)
+asset(shaders/main.frag)
 
-configure_file(${SHADERS}/main.vert ${SHADERS_BINARY}/main.vert COPYONLY)
-configure_file(${SHADERS}/main.frag ${SHADERS_BINARY}/main.frag COPYONLY)
+asset(shaders/post_main.vert)
+asset(shaders/blur_horizontal.frag)
+asset(shaders/blur_vertical.frag)
+asset(shaders/bright.frag)
+asset(shaders/add.frag)
 
-configure_file(${SHADERS}/post_main.vert ${SHADERS_BINARY}/post_main.vert COPYONLY)
-configure_file(${SHADERS}/blur_horizontal.frag ${SHADERS_BINARY}/blur_horizontal.frag COPYONLY)
-configure_file(${SHADERS}/blur_vertical.frag ${SHADERS_BINARY}/blur_vertical.frag COPYONLY)
-configure_file(${SHADERS}/bright.frag ${SHADERS_BINARY}/bright.frag COPYONLY)
-configure_file(${SHADERS}/add.frag ${SHADERS_BINARY}/add.frag COPYONLY)
-
-configure_file(${SHADERS}/text.vert ${SHADERS_BINARY}/text.vert COPYONLY)
-configure_file(${SHADERS}/text.frag ${SHADERS_BINARY}/text.frag COPYONLY)
+asset(shaders/text.vert)
+asset(shaders/text.frag)
 
 
 #
 # Models
 #
 
-set(MODELS ${CMAKE_CURRENT_SOURCE_DIR}/models)
-set(MODELS_BINARY ${CMAKE_CURRENT_BINARY_DIR}/models)
+asset(models/green.png)
 
-configure_file(${MODELS}/green.png ${MODELS_BINARY}/green.png COPYONLY)
+asset(models/terrain_texture.png)
+asset(models/tank_light_map.png)
 
-configure_file(${MODELS}/terrain_texture.png ${MODELS_BINARY}/terrain_texture.png COPYONLY)
-configure_file(${MODELS}/tank_light_map.png ${MODELS_BINARY}/tank_light_map.png COPYONLY)
+asset(models/tank_torso.obj)
+asset(models/tank_head.obj)
+asset(models/tank_cannon.obj)
 
-configure_file(${MODELS}/tank_torso.obj ${MODELS_BINARY}/tank_torso.obj COPYONLY)
-configure_file(${MODELS}/tank_head.obj ${MODELS_BINARY}/tank_head.obj COPYONLY)
-configure_file(${MODELS}/tank_cannon.obj ${MODELS_BINARY}/tank_cannon.obj COPYONLY)
+asset(models/tank_texture.png)
+asset(models/tank_light_map.png)
 
-configure_file(${MODELS}/tank_texture.png ${MODELS_BINARY}/tank_texture.png COPYONLY)
-configure_file(${MODELS}/tank_light_map.png ${MODELS_BINARY}/tank_light_map.png COPYONLY)
+asset(models/dirt_1_texture.png)
+asset(models/neutral_light_map.png)
+asset(models/dirt_1.obj)
 
-configure_file(${MODELS}/dirt_1_texture.png ${MODELS_BINARY}/dirt_1_texture.png COPYONLY)
-configure_file(${MODELS}/neutral_light_map.png ${MODELS_BINARY}/neutral_light_map.png COPYONLY)
-configure_file(${MODELS}/dirt_1.obj ${MODELS_BINARY}/dirt_1.obj COPYONLY)
+asset(models/ball.obj)
+asset(models/ball_texture.png)
+asset(models/ball_light_map.png)
 
-configure_file(${MODELS}/ball.obj ${MODELS_BINARY}/ball.obj COPYONLY)
-configure_file(${MODELS}/ball_texture.png ${MODELS_BINARY}/ball_texture.png COPYONLY)
-configure_file(${MODELS}/ball_light_map.png ${MODELS_BINARY}/ball_light_map.png COPYONLY)
+asset(models/beautifont.png)
 
-configure_file(${MODELS}/beautifont.png ${MODELS_BINARY}/beautifont.png COPYONLY)
+asset(models/player_tank_torso.obj)
+asset(models/player_tank_head.obj)
+asset(models/player_tank_cannon.obj)
 
-configure_file(${MODELS}/player_tank_torso.obj ${MODELS_BINARY}/player_tank_torso.obj COPYONLY)
-configure_file(${MODELS}/player_tank_head.obj ${MODELS_BINARY}/player_tank_head.obj COPYONLY)
-configure_file(${MODELS}/player_tank_cannon.obj ${MODELS_BINARY}/player_tank_cannon.obj COPYONLY)
+asset(models/player_tank_torso_texture.png)
+asset(models/player_tank_head_texture.png)
+asset(models/player_tank_cannon_texture.png)
+asset(models/player_tank_torso_light_map.png)
 
-configure_file(${MODELS}/player_tank_torso_texture.png ${MODELS_BINARY}/player_tank_torso_texture.png COPYONLY)
-configure_file(${MODELS}/player_tank_head_texture.png ${MODELS_BINARY}/player_tank_head_texture.png COPYONLY)
-configure_file(${MODELS}/player_tank_cannon_texture.png ${MODELS_BINARY}/player_tank_cannon_texture.png COPYONLY)
-configure_file(${MODELS}/player_tank_torso_light_map.png ${MODELS_BINARY}/player_tank_torso_light_map.png COPYONLY)
+asset(models/tank_particle.obj)
+asset(models/tank_particle_texture.png)
 
-configure_file(${MODELS}/tank_particle.obj ${MODELS_BINARY}/tank_particle.obj COPYONLY)
-configure_file(${MODELS}/tank_particle_texture.png ${MODELS_BINARY}/tank_particle_texture.png COPYONLY)
+asset(models/explosion.obj)
+asset(models/explosion_texture.png)
 
-configure_file(${MODELS}/explosion.obj ${MODELS_BINARY}/explosion.obj COPYONLY)
-configure_file(${MODELS}/explosion_texture.png ${MODELS_BINARY}/explosion_texture.png COPYONLY)
+asset(models/tree.obj)
+asset(models/tree_texture.png)
+asset(models/tree_light_map.png)
 
-configure_file(${MODELS}/tree.obj ${MODELS_BINARY}/tree.obj COPYONLY)
-configure_file(${MODELS}/tree_texture.png ${MODELS_BINARY}/tree_texture.png COPYONLY)
-configure_file(${MODELS}/tree_light_map.png ${MODELS_BINARY}/tree_light_map.png COPYONLY)
-
-configure_file(${MODELS}/light_bush.obj ${MODELS_BINARY}/light_bush.obj COPYONLY)
-configure_file(${MODELS}/light_bush_texture.png ${MODELS_BINARY}/light_bush_texture.png COPYONLY)
-configure_file(${MODELS}/light_bush_light_map.png ${MODELS_BINARY}/light_bush_light_map.png COPYONLY)
+asset(models/light_bush.obj)
+asset(models/light_bush_texture.png)
+asset(models/light_bush_light_map.png)
 
