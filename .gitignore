@@ -21,3 +21,16 @@
 # changes to libraries should be rare
 /libraries/
 
+# glfw docs
+/libraries/glfw-3.3.2/docs
+
+# cmake stuff
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+/Makefile
+
+
+

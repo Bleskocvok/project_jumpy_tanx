@@ -12,8 +12,8 @@ Application::Application(size_t initial_width, size_t initial_height)
         , post(initial_width, initial_height) {
 
     glViewport(0, 0, width, height);
-//        glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
-    post.clearColor(0.3, 0.3, 0.3, 1.0);
+    post.clearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    // post.clearColor(0.3, 0.3, 0.3, 1.0);
 
     //glEnable(GL_MULTISAMPLE);
     glEnable(GL_CULL_FACE);

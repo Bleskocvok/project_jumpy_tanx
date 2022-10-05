@@ -83,7 +83,8 @@ void main() {
 	vec3 result_mat_color = mix(result_color, mat_tex_col * mat_diff_col, diff_value);
 	
 	vec4 view_space = view * vec4(fs_position, 1.0);
-	vec3 fog_color = vec3(0.3, 0.3, 0.3);
+	// vec3 fog_color = vec3(0.3, 0.3, 0.3);
+	vec3 fog_color = vec3(0.0, 0.0, 0.0);
 	float fog_start = 70.0;
 	float fog_end = 110.0;
 	float fog_factor = (fog_end - abs(view_space.z)) / (fog_end - fog_start);
