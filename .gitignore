@@ -3,8 +3,9 @@
 # bash utils
 /*.sh
 
-# DLLs
+# DLLs / shared libraries
 /*.dll
+/*.a
 
 # vscode crap
 /.vscode/
@@ -13,6 +14,8 @@
 /win/
 /bin/
 /build/
+/bin-win/
+/bin-lin/
 
 # releases
 /*jumpy_tanx*/

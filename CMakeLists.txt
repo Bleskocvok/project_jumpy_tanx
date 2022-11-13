@@ -24,6 +24,7 @@ set(SRC_FILES
     src/application.cpp
 )
 
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/)
 
 
 # ################################################
@@ -39,16 +40,28 @@ macro(add_lib_to_list VALUE)
 endmacro()
 
 #
-# General settings
+# OpenGL
 #
 find_package(OpenGL REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS})
 add_lib_to_list("${OPENGL_LIBRARIES}")
 
+
+#
+# GLFW
+#
+add_subdirectory(libraries/glfw-3.3.2)
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libraries/glfw-3.3.2/include")
+set(GLFW_BUILD_DOCS     OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_TESTS    OFF CACHE BOOL "" FORCE)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
+add_lib_to_list(glfw)
+
+
 #
 # GLM
 #
-include_directories(libraries/glm-0.9.9.8/glm)
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libraries/glm-0.9.9.8/glm")
 add_subdirectory(libraries/glm-0.9.9.8/glm)
 
 
@@ -62,19 +75,9 @@ add_lib_to_list(glad)
 
 
 #
-# GLFW
-#
-add_subdirectory(libraries/glfw-3.3.2)
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_lib_to_list(glfw)
-
-
-#
 # stb_image
 #
-include_directories(libraries/stb_image)
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libraries/stb_image")
 add_library(stb_image libraries/stb_image/stb_image.c)
 add_lib_to_list(stb_image)
 
@@ -82,7 +85,7 @@ add_lib_to_list(stb_image)
 #
 # tiny_obj_loader
 #
-include_directories(libraries/tiny_obj_loader)
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libraries/tiny_obj_loader")
 add_library(tiny_obj_loader libraries/tiny_obj_loader/tiny_obj_loader.cpp)
 add_lib_to_list(tiny_obj_loader)
 
@@ -96,17 +99,24 @@ add_lib_to_list(tiny_obj_loader)
 
 message(STATUS "Libraries: ${LIST_OF_LIBRARIES}")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} \
-    -std=c++17 \
-    -Wall \
-    -Wextra \
-    -pedantic \
-    -O2 \
-")
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED on)
 
-add_executable(jumpy_tanx WIN32 ${SRC_FILES})
+if(NOT MSVC)
+    add_compile_options(-Wall -Wextra -pedantic -O2 -DNDEBUG)
+    # disable shared libraries
+    # set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+    # set(BUILD_SHARED_LIBS           OFF)
+    # set(CMAKE_EXE_LINKER_FLAGS      "-static")
+else()
+    add_compile_options(/W4 /Wall)
+endif()
+
+
+add_executable(jumpy_tanx ${SRC_FILES})
 
 target_link_libraries(jumpy_tanx ${LIST_OF_LIBRARIES})
+# target_link_libraries(jumpy_tanx -static)
 
 
 
