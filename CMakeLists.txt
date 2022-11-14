@@ -50,7 +50,7 @@ add_lib_to_list("${OPENGL_LIBRARIES}")
 #
 # GLFW
 #
-add_subdirectory(libraries/glfw-3.3.2)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/libraries/glfw-3.3.2)
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/libraries/glfw-3.3.2/include")
 set(GLFW_BUILD_DOCS     OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS    OFF CACHE BOOL "" FORCE)
