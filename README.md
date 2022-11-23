@@ -4,6 +4,11 @@ A game like no other...
 ### Latest version
 [**Download**](https://github.com/Bleskocvok/project_jumpy_tanx/releases/latest)
 
+### Gameplay
+
+![GIF_of_gameplay](demo/showcase0.gif)
+![GIF_of_gameplay](demo/showcase1.gif)
+
 ### Dependencies
 The project depends on these libraries, for each there is a respective folder in `libraries`:
 
