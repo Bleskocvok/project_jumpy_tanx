@@ -1,5 +1,6 @@
 # project_jumpy_tanx
 A game like no other…
+Originally created as a university project.
 
 [![Download badge](https://img.shields.io/badge/Download-latest-purple)](https://github.com/Bleskocvok/project_jumpy_tanx/releases/latest)
 ![total downloads badge](https://img.shields.io/github/downloads/Bleskocvok/project_jumpy_tanx/total.svg)
